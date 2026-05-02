@@ -53,7 +53,7 @@ ScrollReveal().reveal('.home-contact h1, .about-content, .arts', { orgin: 'left'
 ScrollReveal().reveal('.home-content p, .about-content,', { orgin: 'right' });
 
 const typed = new Typed('.multiple-text', {
-    strings: ['a Jr. Web Developer', ' an Artist','a Frontend Developer'],
+    strings: ['Embedded Developer','IoT Enthusiast','Hardware Builder'],
     typeSpeed: 70,
     backSpeed: 70,
     backDelay: 1000,
