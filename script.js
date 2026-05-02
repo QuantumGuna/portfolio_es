@@ -1,61 +1,591 @@
-/************************* toggle Icon navbar **************************/
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Nunito', sans-serif;
+}
+:root {
+    --bg-color: #421717;
+    --snd-bf-color: #402630;
+    --text-color: #a59f9f;
+    --main-color: #f45959;
+}
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
 
-let menuIcon = document.querySelector('#menu-icon');
-let navbar = document.querySelector('.navbar');
+}
+section {
+    min-height: 100vh;
+    padding: 10rem 9% 2rem;
+}
+/********************************* Header Section********************************/
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 9%;
+    background: var(--bg-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+.logo {
+    font-size: 4.5rem;
+    color: var(--text-color);
+    font-weight: 700;
+    cursor: pointer;
+    
+}
+.navbar a {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-left: 4rem;
+    font-weight: 700;
+}
+.navbar a:hover,
+.navbar a:active {
+    color: var(--main-color);
 
-menuIcon.onclick = () => {
-    menuIcon.classList.toggle('fa-xmark');
-    navbar.classList.toggle('active');
+}
+#menu-icon {
+    font-size: 3.6rem;
+    color: var(--text-color);
+    display: none;
+
+}
+/******************************* Home Section***********************************/
+.home {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.home-content h3 {
+    font-size: 3.2rem;
+    font-weight: 700;
+}
+.home-content p {
+    font-size: 2.6rem;
+    align-items: start;
+}
+.home-content h3:nth-of-type(2) {
+    margin-bottom: 2rem;
+}
+span {
+    color: var(--main-color);
+}
+.home-content h1 {
+    font-size: 5.6rem;
+    font-weight: 700;
+    line-height: 1.3;
 }
 
-/************************* scroll section active list **************************/
+.home-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+.home-img img {
+    width: 60vw;
+    max-width: 300px;
+    object-fit: contain;
+}
+.home-img .original {
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.7));
+    animation: floatImage 4s ease-in-out infinite;
+    transition: opacity 0.3s ease-in-out;
+}
 
-let sections = document.querySelectorAll('section');
-let navLinks = document.querySelectorAll('header nav a');
+@keyframes floatImage {
+    0% {
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-3.4rem);
+        
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+.social-media a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background: transparent;
+    border: .2rem solid var(--main-color);
+    border-radius: 50%;
+    font-size: 2rem;
+    color: var(--main-color);
+    margin: 1rem 1.5rem 3rem 0;
+    transition: .5s ease;
+}
+.social-media a:hover {
+    background: var(--main-color);
+    color: var(--snd-bf-color);
+    box-shadow: 0 0 1rem var(--main-color);
+}
+/********************************** About Section**********************************/
+.about {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10rem;
+    background: var(--snd-bf-color);
 
-window.onscroll = () => {
-    let top = window.scrollY;
+}
+/**
+.about-img img {
+    width: 25vw;
+    border-radius: 70px;
+} **/
+.heading {
+    text-align: center;
+    font-size: 4.5rem;
+}
+.about-content {
+    padding: 3rem;
+}
+.about-content h2 {
+    text-align: left;
+    line-height: 1.2;
+}
+.about-content h3 {
+    font-size: 3.6rem;
+}
+.about-content p {
+    font-size: 2rem;
+    margin: 2rem 0 3rem;
+}
+.about-content details {
+    margin: 10px;
+    font-size: 1.6rem;
+    
+}
+details {
+    cursor: pointer;
+}
+details .education p{
+    margin: 0.5rem;
+}
+.btn {
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background: var(--main-color);
+    border-radius: 4rem;
+    box-shadow: 0 0 1rem var(--main-color);
+    font-size: 1.6rem;
+    color: var(--bg-color);
+    letter-spacing: .1rem;
+    font-weight: 600;
+    transition: .5s ease;
+}
+.btn:hover {
+    background-color: 0 0 1rem var(--bg-color);
+    color: var(--text-color);
+}
+/************************* Skills Section**********************************/
+.skills {
+    background: var(--bg-color);
+}
+.skills h2 {
+    margin-bottom: 5rem;
+}
+.skill-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.skill-content .skill {
+    flex:1 1 30rem;
+    background: var(--snd-bf-color);
+    padding: 3rem 2rem 5rem;
+    text-align: center;
+    border: .2rem solid var(--snd-bf-color);
+    border-radius: 30px;
+    transition: .5s ease;
+}
+.skill-content .skill:hover {
+    border-color: var(--main-color);
+    transform: scale(1.02);
+}
+.skill i {
+    font-size: 7rem;
+    color: var(--main-color);
+}
+.skill h3 {
+    font-size: 2.6rem;
+}
+/******************************** Project Section******************************/
+.project {
+    background: var(--snd-bf-color);
+}
+.project h2 {
+    margin-bottom: 4rem;
+}
+.project-content {
+    display: flex;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+}
+.project-content .project-box {
+    position: relative;
+    border-radius: 2rem;
+    box-shadow: 0 0 1rem var(--bg-color);
+    overflow: hidden;
+    display: flex;
+}
+.project-box img {
+    width: 20vw;
+    height: 40vh;
+    opacity: 0.7;
+}
+.project-box:hover img {
+    transform: scale(1.1);
+}
+.project-box .project-layer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 4rem;
+    transform: translateY(100%);
+    transition: .5s ease;
+}  
+.project-box:hover .project-layer {
+    transform: translateY(0);
+    background: linear-gradient(45deg, var(--main-color), var(--text-color));
+}
+.project-layer h4 {
+    font-size: 4rem;
+}
+.project-layer p {
+    font-size: 1.6rem;
+    margin: .3rem 0 1rem;
+}
+.project-layer a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    height: 5rem;
+    background: var(--text-color);
+    border-radius: 50%;
+}
+.project-layer a i {
+    font-size: 2rem;
+    color: var(--snd-bf-color);
+}
 
-    sections.forEach(sec => {
-        let offset = sec.offsetTop - 150;
-        let height = sec.offsetHeight;
-        let id = sec.getAttribute('id');
+/************************************** Arts Section******************************/
+.arts .heading {
+    text-align: center;
+    margin: 2.6rem;
+}
 
-        if (top >= offset && top < offset + height) {
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                let activeLink = document.querySelector('header nav a[href*="' + id + '"]');
-                if (activeLink) {
-                    activeLink.classList.add('active');
-                }
-            });
-        }
-    });
 
-    /************************* sticky navbar **************************/
-    let header = document.querySelector('header');
-    header.classList.toggle('sticky', window.scrollY > 100);
+.container {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #fff 20%, #fff 80%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #fff 20%, #fff 80%, transparent);
+}
 
-    /************************* remove toggle icon and navbar **************************/
-    menuIcon.classList.remove('fa-xmark');
-    navbar.classList.remove('active');
-};
+.scroller {
+    display: flex;
+    gap: 10px;
+    animation: scroll 25s linear infinite;
+    animation-delay: calc(25s / -1);
+    transition: gap 0.3s ease-in-out;
+}
 
-ScrollReveal({
-    distance: '80px',
-    duration: 2000,
-    delay: 200,
-});
+.scroller:nth-child(2) {
+    animation: scroll2 25s linear infinite;
+    animation-delay: calc(25s / -2);
+}
+.container:hover .scroller {
+    animation-play-state: paused;
+    transition: animation-play-state 0.3s ease-in-out;
+}
+.item {
+    height: 30vh;
+    width: 200px;
+    flex-shrink: 0; 
+    border-radius: 7px;
+    border: 2px solid ;
+    box-shadow: var(--bg-color) 0px 0px 15px;
+    object-fit: cover; /* Ensures the image covers the whole area without distortion */
+    transition: transform 0.3s ease, margin 0.3s ease-in-out;
+}
+.item:hover {
+    transform: scale(1.1);
+    margin: 20px;
+    box-shadow: var(--main-color) 0px 0px 15px;
+}
+.spacer {
+    width: 0;
+    border: none;
+}
 
-ScrollReveal().reveal('.home-content, heading', { orgin: 'top' });
-ScrollReveal().reveal('.home-img, .skill-content, .project-box, .contact form', { orgin: 'buttom' });
-ScrollReveal().reveal('.home-contact h1, .about-content, .arts', { orgin: 'left' });
-ScrollReveal().reveal('.home-content p, .about-content,', { orgin: 'right' });
+.description {
+    margin: 2.6rem;
+    padding-top: 3rem;
+    font-size: 2rem;
+}
+.description span {
+    font-size: 2.6rem;
+}
+@keyframes scroll {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
 
-const typed = new Typed('.multiple-text', {
-    strings: ['Embedded Developer','IoT Enthusiast','Hardware Builder'],
-    typeSpeed: 70,
-    backSpeed: 70,
-    backDelay: 1000,
-    loop: true,
-});
+@keyframes scroll2 {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-200%);
+    }
+}
+/***********************8****** Contact Section *******************************/
+.contact {
+    background: var(--snd-bf-color);
+}
+.contact h2 {
+    margin-bottom: 3rem;
+}
+.contact form {
+    max-width: 70rem;
+    margin: 1rem auto;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.contact form .input-box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.contact form .input-box input,
+.contact form textarea {
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    color: var(--text-color);
+    background: var(--bg-color);
+    border-radius: .8rem;
+    margin: .7rem 0;
+}
+.contact form .input-box input {
+    width: 49%;
+}
+.contact form textarea {
+    resize: none;
+}
+.contact form .btn {
+    margin-top: 2rem;
+    cursor: pointer;
+}
+/********************** Footer Section *******************************/
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2rem 9%;
+    background: var(--bg-color);
+}
+.footer-text {
+    font-size: 1.6rem;
+}
+.footer-iconTop {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: .8rem 1rem;
+    background: var(--main-color);
+    border-radius: .8rem;
+    transition: .5s ease;
+
+}
+.footer-iconTop a:hover {
+    box-shadow: 0 0 1rem var(--main-color);
+}
+.footer-iconTop a i {
+    font-size: 2.4rem;
+    color: var(--snd-bf-color);
+}
+
+/*************************** Responsive Designs ********************************/
+@media (max-width: 1200px) {
+    html {
+        font-size: 55%;
+    }
+}
+@media (max-width: 991px) {
+    .header {
+        padding: 2rem 3%;
+    }
+    section {
+        padding: 10rem 3%;
+    }
+    .skills {
+        padding: 7rem;
+    }
+    .project {
+        min-height: auto;
+    }
+    .footer {
+        padding: 2rem 3%;
+    }
+}
+@media (max-width: 768px) {
+    #menu-icon {
+        display: block;
+    }
+    .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 3%;
+        background: var(--bg-color);
+        border-top: .1rem solid rgba(0, 0, 0, .2);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+        display: none;
+        transition: 1s ease;
+    }
+    .navbar:active {
+        display: block;
+    }
+    .navbar.active {
+        display: block;
+    }
+    .navbar a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+    }
+    .home {
+        flex-direction: column;
+        text-align: center;
+    }
+    .home-content p {
+        font-size: 1.6rem;
+        padding: 0 1rem;
+    }
+    .home-content h3 {
+        font-size: 2.6rem;
+    }
+    .home-content h1 {
+        font-size: 5rem;
+    }
+    .home-content {
+        order: 2;
+    }
+    .home-img img {
+        width: 10vw;
+        margin-top: 4rem;
+    }
+    .home-img .ori-layer {
+        width: 80vw;
+    }
+    .about {
+        flex-direction: column;
+    }
+    .about-img img {
+        width: 80vw;
+        margin-top: 4rem;
+    }
+    .education {
+        flex-direction: column;
+    }
+    .edu-detail {
+        order: 2;
+    }
+    .edu-img img {
+        width: 60vw;
+    }
+    .skill h2 {
+        margin-bottom: 3rem;
+    }
+    .skill-content {
+        flex-direction: column;
+    }
+    .project h2 {
+        margin-bottom: 3rem;
+    }
+    .project-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .project-box {
+        width: 100%; 
+        margin-bottom: 2rem;
+    }
+    .project-box img {
+        width: 100%;
+    }
+}
+@media (max-width: 617px) {
+    .project-content {
+        grid-template-columns: 1fr;
+    }
+    .home-img img {
+        width: 80vw;
+        margin-top: 8rem;
+    }
+
+    .about-img img {
+        width: 60vw;
+        border-radius: 40px;
+        margin-top: 4rem;
+    }
+    .edu-img img {
+        width: 50vw;
+        margin-top: 4rem;
+    }
+}
+@media (max-width: 450px) {
+    html {
+        font-size: 50%;
+    }
+    .about .about-content p {
+        font-size: 2rem;
+    }
+    .contact form .input-box input {
+        width: 100%;
+    }
+}
